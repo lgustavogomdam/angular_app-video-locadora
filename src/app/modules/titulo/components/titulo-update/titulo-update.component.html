@@ -1,0 +1,112 @@
+<form [formGroup]="form" class="row w-75 d-flex justify-content-center align-items-center" (ngSubmit)="OnSubmit()">
+
+  <!-- ID do Ator -->
+  @if (operacaoUpdate) {
+      <mat-form-field class="col-12">
+        <mat-label>ID do Titulo:</mat-label>
+        <input matInput [disabled]="true" [value]="model?.id" formControlName="id" (keydown)="onKeyDown($event)">
+      </mat-form-field>
+  }
+
+  <!-- PrimeiroNome -->
+  <mat-form-field class="col-12">
+    <mat-label for="nome" >Nome:</mat-label>
+    <input matInput type="text" placeholder="Ex: Titulo X" formControlName="nome">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('nome')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+
+  <!-- UltimoNome -->
+  <mat-form-field class="col-6">
+    <mat-label for="ano" >Ano:</mat-label>
+    <input matInput type="number" placeholder="Ex: 2004" formControlName="ano">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('ano')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="col-6">
+    <mat-label for="categoria" >Categoria:</mat-label>
+    <input matInput type="text" placeholder="Ex: Filme" formControlName="categoria">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('categoria')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="row p-0 d-flex">
+    <mat-form-field class="col-6">
+      <mat-label for="sinopse">Sinopse:</mat-label>
+      <textarea matInput placeholder="Ex: O filme é top!" formControlName="sinopse"></textarea>
+      @if (form.invalid) {
+        <mat-error>
+          <span>
+            {{ getMensagemErro(form.get('sinopse')) }}
+          </span>
+        </mat-error>
+      }
+    </mat-form-field>
+    <div class="col-6 p-0">
+      <div formGroupName="ator">
+        <mat-form-field class="col-12">
+          <mat-label for="id" >ID do Ator:</mat-label>
+          <input matInput type="text" placeholder="Ex:1" formControlName="id">
+          @if (form.invalid) {
+            <mat-error>
+              <span>
+                {{ getMensagemErro(form.get('id')) }}
+              </span>
+            </mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div formGroupName="diretor">
+        <mat-form-field class="col-12">
+          <mat-label for="id" >ID do Diretor:</mat-label>
+          <input matInput type="text" placeholder="Ex: 1" formControlName="id">
+          @if (form.invalid) {
+            <mat-error>
+              <span>
+                {{ getMensagemErro(form.get('id')) }}
+              </span>
+            </mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div formGroupName="classe">
+        <mat-form-field class="col-12">
+          <mat-label for="id" >ID da Classe:</mat-label>
+          <input matInput type="text" placeholder="Ex: 1" formControlName="id">
+          @if (form.invalid) {
+            <mat-error>
+              <span>
+                {{ getMensagemErro(form.get('id')) }}
+              </span>
+            </mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <button mat-button
+    type="submit"
+    class="col-6 bg-btn-secondary color-white">
+      Enviar
+    </button>
+</form>

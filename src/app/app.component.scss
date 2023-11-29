@@ -1,0 +1,67 @@
+@import '../dist/variables/variables.scss';
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+//Sidenav
+.sidenav-container{
+  min-width: 300px !important;
+  height: 100dvh !important;
+  background: linear-gradient(to bottom,rgb(141, 0, 80) 0%, rgb(255, 0, 174) 100%);
+}
+
+//Header
+header{
+  height: 80px;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  mat-toolbar{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom,rgb(102, 0, 58) 0%, rgba(255, 0, 174, 0.456) 100%);
+    // background: linear-gradient(to bottom,rgb(0, 24, 102) 0%, rgba(0, 242, 255, 0.456) 100%);
+    backdrop-filter: blur(5px);
+    color: $font-color-white;
+
+    .bg-btn-secondary{
+      background-color: #ffffff00 !important;
+    }
+
+    .bg-btn-secondary:hover{
+      background-color: #ffffff1e !important;
+    }
+
+    .home-logo{
+
+      width: 20%;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .logo{
+      width: auto;
+      max-height: 80% !important;
+    }
+
+    .navbar{
+      width: 70%;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+
+  }
+}
+
+//Main
+main{
+  padding: 90px 15px 10px;
+  min-height: 100dvh !important;
+}

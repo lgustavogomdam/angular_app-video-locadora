@@ -1,0 +1,51 @@
+<form [formGroup]="form" class="row w-75 d-flex justify-content-center align-items-center" (ngSubmit)="OnSubmit()">
+
+  <!-- ID do Ator -->
+  @if (operacaoUpdate) {
+      <mat-form-field class="col-12">
+        <mat-label>ID do Diretor:</mat-label>
+        <input matInput [disabled]="true" [value]="model?.id" formControlName="id">
+      </mat-form-field>
+  }
+
+  <!-- PrimeiroNome -->
+  <mat-form-field class="col-12">
+    <mat-label for="nome" >Nome da Classe:</mat-label>
+    <input matInput placeholder="Ex: Luiz Gustavo" formControlName="nome">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('nome')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+
+  <!-- UltimoNome -->
+  <mat-form-field class="col-6">
+    <mat-label for="valor" >Valor:</mat-label>
+    <input matInput type="number" placeholder="Ex: Luiz Gustavo" formControlName="valor">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('valor')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="col-6">
+    <mat-label for="dataDevolucao">Data de Devolução:</mat-label>
+    <input matInput [matDatepicker]="dp3" formControlName="dataDevolucao" (keydown)="onKeyDown($event)" placeholder="Selecione a data ->">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-button
+    type="submit"
+    class="col-6 bg-btn-secondary color-white">
+      Enviar
+    </button>
+</form>

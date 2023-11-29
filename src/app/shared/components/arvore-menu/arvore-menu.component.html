@@ -1,0 +1,21 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="sheets">
+    <a [routerLink]="node.sheet.link" class="link d-flex flex-row flex-nowrap align-items-center gap-2">
+      <mat-icon class="mat-18 color-default">
+        {{node.sheet.icon}}
+      </mat-icon>
+      {{node.sheet.name}}
+    </a>
+
+  </mat-tree-node>
+  <!-- This is the tree node template for expandable nodes -->
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding class="node">
+    <button mat-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.sheet.name" class="btn-node w-100">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+      {{node.sheet.name}}
+    </button>
+  </mat-tree-node>
+</mat-tree>

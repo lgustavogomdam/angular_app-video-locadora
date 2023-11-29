@@ -1,7 +1,64 @@
-<header>
-  <app-header></app-header>
-</header>
+<mat-drawer-container class="example-container" [hasBackdrop]=true>
+  <mat-drawer #drawer mode='side'>
+    <nav class="sidenav-container p-3 overflow-y-auto">
+      <app-arvore-menu></app-arvore-menu>
+    </nav>
+  </mat-drawer>
 
-<main class="container-fluid">
-  <router-outlet></router-outlet>
-</main>
+  <mat-drawer-content>
+    <header>
+      <mat-toolbar class="d-flex gap-3">
+        <button mat-fab class="bg-btn-secondary" (click)="drawer.toggle()">
+          <mat-icon class="mat-18">menu</mat-icon>
+        </button>
+        <a routerLink="/home" class="link w-25 d-flex align-items-center">
+          <img src="../assets/img/2564674-PhotoRoom.png-PhotoRoom.png" alt="Logotipo AllocVideo" class="logo">
+          <p class="fs-2 m-0 fw-bold text-light">AllocVideo</p>
+        </a>
+      </mat-toolbar>
+      <!-- <mat-toolbar class="d-flex gap-3">
+        <div class="home-logo">
+            <img src="" alt="Logotipo Locadora" class="logo">
+            <p class="fs-2 m-0 fw-bold text-light"><a [routerLink]="['/home']"  class="link text-center color-white">Locadora</a></p>
+        </div>
+        <div class="navbar">
+
+          <button mat-button [matMenuTriggerFor]="menuAtor">Ator</button>
+          <mat-menu #menuAtor="matMenu">
+            <a mat-menu-item routerLink="/ator">Listar</a>
+            <a mat-menu-item routerLink="/ator/cadastrar">Cadastrar</a>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menuDiretor">Diretor</button>
+          <mat-menu #menuDiretor="matMenu">
+            <a mat-menu-item routerLink="/diretor">Listar</a>
+            <a mat-menu-item routerLink="/diretor/cadastrar">Cadastrar</a>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menuClasse">Classe</button>
+          <mat-menu #menuClasse="matMenu">
+            <a mat-menu-item routerLink="/classe">Listar</a>
+            <a mat-menu-item routerLink="/classe/cadastrar">Cadastrar</a>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menuItem">Item</button>
+          <mat-menu #menuItem="matMenu">
+            <a mat-menu-item routerLink="/item">Listar</a>
+            <a mat-menu-item routerLink="/item/cadastrar">Cadastrar</a>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menuTitulo">Titulo</button>
+          <mat-menu #menuTitulo="matMenu">
+            <a mat-menu-item routerLink="/titulo">Listar</a>
+            <a mat-menu-item routerLink="/titulo/cadastrar">Cadastrar</a>
+          </mat-menu>
+        </div>
+      </mat-toolbar> -->
+
+    </header>
+
+    <main class="container-fluid ">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

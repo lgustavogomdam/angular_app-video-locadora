@@ -1,0 +1,43 @@
+<form [formGroup]="form" class="row w-75 d-flex justify-content-center align-items-center" (ngSubmit)="OnSubmit()">
+
+  <!-- ID do Ator -->
+  @if (operacaoUpdate) {
+      <mat-form-field class="col-12">
+        <mat-label>ID do Diretor</mat-label>
+        <input matInput [disabled]="true" [value]="model?.id" formControlName="id">
+      </mat-form-field>
+  }
+
+  <!-- PrimeiroNome -->
+  <mat-form-field class="col-12">
+    <mat-label for="primeiroNome" >Primeiro Nome</mat-label>
+    <input matInput placeholder="Ex: Luiz Gustavo" formControlName="primeiroNome">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('primeiroNome')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+
+  <!-- UltimoNome -->
+  <mat-form-field class="col-12">
+    <mat-label for="ultimoNome" >Último Nome</mat-label>
+    <input matInput placeholder="Ex: Luiz Gustavo" formControlName="ultimoNome">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('ultimoNome')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-button
+    type="submit"
+    class="col-6 bg-btn-secondary color-white">
+      Enviar
+    </button>
+</form>

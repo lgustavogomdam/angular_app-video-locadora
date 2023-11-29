@@ -1,0 +1,29 @@
+@import '../../../../dist/variables/variables.scss';
+
+*{
+  background-color: #ffffff00 !important;
+  color: $font-color-white !important;
+}
+.sheets:hover{
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  transition: 0.5s;
+}
+
+a{
+  width: 100%;
+  padding: 5px;
+  font-weight: normal;
+}
+
+button:hover{
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  transition: 0.5s;
+}
+
+.btn-node{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+

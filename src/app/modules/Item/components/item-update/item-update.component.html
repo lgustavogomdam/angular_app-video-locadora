@@ -1,0 +1,65 @@
+<form [formGroup]="form" class="row w-75 d-flex justify-content-center align-items-center" (ngSubmit)="OnSubmit()">
+
+  <!-- ID do Ator -->
+  @if (operacaoUpdate) {
+      <mat-form-field class="col-12">
+        <mat-label>ID do Item:</mat-label>
+        <input matInput [disabled]="true" [value]="model?.id" formControlName="id" (keydown)="onKeyDown($event)">
+      </mat-form-field>
+  }
+
+  <!-- Nº Série -->
+  <mat-form-field class="col-12">
+    <mat-label for="numero_de_serie" >Nº Série:</mat-label>
+    <input matInput type="number" placeholder="Ex: 1234" formControlName="numero_de_serie">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('numero_de_serie')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+
+  <!-- Data de Aquisição -->
+  <mat-form-field class="col-6">
+    <mat-label for="data_aquisicao">Data de Aquisição:</mat-label>
+    <input matInput [matDatepicker]="dp3" formControlName="data_aquisicao" (keydown)="onKeyDown($event)" placeholder="Selecione a data ->">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="col-6">
+    <mat-label for="tipo_item" >Tipo de item:</mat-label>
+    <input matInput type="text" placeholder="Ex: Filme" formControlName="tipo_item">
+    @if (form.invalid) {
+      <mat-error>
+        <span>
+          {{ getMensagemErro(form.get('tipo_item')) }}
+        </span>
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div formGroupName="titulo">
+    <mat-form-field class="col-6">
+      <mat-label for="id" >ID do titulo:</mat-label>
+      <input matInput type="text" placeholder="Ex: O filme é top!" formControlName="id">
+      @if (form.invalid) {
+        <mat-error>
+          <span>
+            {{ getMensagemErro(form.get('id')) }}
+          </span>
+        </mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <button mat-button
+    type="submit"
+    class="col-6 bg-btn-secondary color-white">
+      Enviar
+    </button>
+</form>
