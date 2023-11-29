@@ -1,27 +1,34 @@
-# AppVideoLocadora
+# Pessoal e contato
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+**Nome:** Luiz Gustavo Gomes Damasceno.<br>
+**Profissão:** Software Engineer.<br>
+**E-mail:** [lgustavogomdam@gmail.com](mailto:lgustavogomdam@gmail.com?subject=Contato+projeto+angular+%22app-video-locadora%22&body=Ol%C3%A1+LGustavo,+vi+seu+projeto+angular+e+me+gerou+interesse...).<br>
+**LinkedIn:** [@lgustavogomdam](https://www.linkedin.com/in/lgustavogomdam/).<br>
+**Telefone / WhatsApp:** +55 27 9 9870-4980
 
-## Development server
+## Angular App Video-Locadora
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 17.0.3.
 
-## Code scaffolding
+Ele conta com o uso do repositório backend: [api-video-locadora](https://github.com/lgustavogomdam/api-video-locadora)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Sobre o sistema
 
-## Build
+  O webapp é um sistema para C.R.U.D. de Atores, Diretores, Classes, Titulos e Item para uma suposta video-locadora de estudo de caso.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Start
 
-## Running unit tests
+Inicie a execução do projeto com `npm install` para baixar todas as dependencias do JS para que tudo funcione perfeitamente.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Execute o comando `npm start` para "rodar" o projeto.
 
-## Running end-to-end tests
+Navegue até `http://localhost:4200/` para ver a aplicação funcionando.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Diagrama de caso de uso
 
-## Further help
+![caso-de-uso!](./src/assets/img/diagrama-caso-de-uso.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Diagrama de classes
+
+![caso-de-uso!](./src/assets/img/diagrama-de-classes.png)
+
