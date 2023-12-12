@@ -37,6 +37,11 @@ export class TituloService {
     return this.http.get<TituloModel[]>(this.baseUrl);
   }
 
+  getTitulosByName(searchTerm: string): Observable<TituloModel[]>{
+    const url = `${this.baseUrl}/findTitles/${searchTerm}`
+    return this.http.get<TituloModel[]>(url);
+  }
+
   // Função para criar um novo Titulo
   createTitulo(titulo: TituloModel): Observable<TituloModel> {
     return this.http.post<TituloModel>(this.baseUrl, titulo);

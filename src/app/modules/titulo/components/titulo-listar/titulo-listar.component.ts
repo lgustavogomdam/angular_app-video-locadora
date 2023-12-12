@@ -5,6 +5,7 @@ import { DiretorModel } from '../../../diretor/diretor-model';
 import { TituloService } from '../../titulo.service';
 import { Router } from '@angular/router';
 import { TituloModel } from '../../titulo-model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 interface ElementoModel {
   id: number;
@@ -30,11 +31,19 @@ export class TituloListarComponent implements OnInit{
   public dataSource!: ElementoModel[];
   public descriptionTable = "";
 
+  //Formulario
+  public formPesquisa!: FormGroup;
+
   //Services
   private service = inject(TituloService);
   private router = inject(Router);
+  private fb = inject(FormBuilder)
 
-  constructor(){}
+  constructor(){
+    this.formPesquisa = this.fb.group({
+      pesquisa: ['']
+    })
+  }
 
   onEdit(id: number) {
     this.router.navigate(['titulo/atualizar', id]);
@@ -52,6 +61,31 @@ export class TituloListarComponent implements OnInit{
         }
       )
     }
+  }
+
+  pesquisarTitulo(){
+    console.log('titulo: ' + this.formPesquisa.get('pesquisa')?.value)
+    this.service.getTitulosByName(this.formPesquisa.get('pesquisa')?.value).subscribe(
+      (response: TituloModel[])=>{
+        console.log('pesquisa aqui')
+        console.log(response)
+        this.dataSource = response.map((titulo: TituloModel) => {
+          return {
+            id: titulo.id,
+            nome: titulo.nome,
+            ano: titulo.ano,
+            categoria: titulo.categoria,
+            sinopse: titulo.sinopse,
+            ator: titulo.actor,
+            diretor: titulo.director,
+            classe: titulo.classe
+          };
+        })
+      },
+      (error: Error)=>{
+        alert('Erro ao pesquisar titulos!');
+      }
+    )
   }
 
   carregarTitulos(): void{

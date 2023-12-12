@@ -1,10 +1,25 @@
 <div class="w-100 h-100">
+  <div class="row w-100 mb-3 d-flex justify-content-evenly align-items-start gap-1" [formGroup]="formPesquisa">
+    <mat-form-field class="example-full-width p-0 col-6" >
+      <mat-label for="pesquisa">Título a ser pesquisado</mat-label>
+      <input matInput placeholder="Ex. Titulo 1" id="pesquisa" formControlName="pesquisa">
+    </mat-form-field>
+    <button mat-raised-button class="p-3 bg-btn-primary rounded-3 color-white col-2 h-100" (click)="pesquisarTitulo()">
+      <mat-icon class="fw-bold fs-3 h-100 w-100 mr-0 p-0" fontIcon="search"></mat-icon>
+      <p class="m-0">Pesquisar</p>
+    </button>
+    <button mat-raised-button class="p-3 bg-btn-secondary rounded-3 color-white col-2 h-100" (click)="carregarTitulos()">
+      <mat-icon class="fw-bold fs-3 h-100 w-100">
+        <span class="material-symbols-outlined">
+        mop
+        </span>
+      </mat-icon>
+      Limpar
+    </button>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [summary]="descriptionTable">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
+    <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
