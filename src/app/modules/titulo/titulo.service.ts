@@ -59,9 +59,9 @@ export class TituloService {
   }
 
   formToModel(formValue: any): Observable<TituloModel> {
-    const atorId = formValue.ator;
-    const diretorId = formValue.diretor;
-    const classeId = formValue.classe;
+    const atorId = formValue.ator.id;
+    const diretorId = formValue.diretor.id;
+    const classeId = formValue.classe.id;
 
     return forkJoin([
       this.atorService.getAtor(atorId),
